@@ -1,0 +1,23 @@
+<section class="category">
+    <ng-content></ng-content>
+    <ng-container *ngIf="categoriesList$ | async as categoriesList; else noCategories">
+        <ul *ngFor="let category of categoriesList; let i = index">
+            <li class="category-list" (click)="showToDoList(i, category.list)">click on {{category.name}}</li>
+        </ul>
+
+        <ng-container *ngIf="showInputDialog">
+            <article class="category-modal">
+                <input [(ngModel)]="inputModel" type="text"/>
+                <div class="category-modal-buttons">
+                    <button (click)="updateCategory()">Ok</button>
+                    <button class="category-modal-buttons-cancel" (click)="showInputDialog = false">Cancel</button>
+                 </div>
+            </article>
+        </ng-container>
+
+        <button class="category-add-button" (click)="showInputDialog = !showInputDialog"> add category + </button>
+    </ng-container>
+    <ng-template #noCategories>
+        No Categories to select!!
+    </ng-template>
+</section>

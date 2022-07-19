@@ -1,0 +1,21 @@
+<section class="todo">
+    <ng-content></ng-content>
+    <ng-container *ngIf="todoListGetter$ | async as list">
+        <ul *ngFor="let item of list">
+            <li class="todo-list" *ngIf="item.value !== ''">
+             <input type="checkbox" [(ngModel)]="item.status"/>{{item.value}}
+         </li>
+        </ul>
+
+        <ng-container *ngIf="showInputDialog">
+            <article class="todo-modal">
+             <input class="todo-modal-input" [(ngModel)]="inputModel" type="text"/>
+             <div class="todo-modal-buttons">
+                <button (click)="updateToDoList()">Ok</button> 
+                <button class="todo-modal-buttons-cancel" (click)="showInputDialog = false">Cancel</button>
+             </div>
+            </article>
+        </ng-container>
+    <button class="todo-add-button" (click)="showInputDialog = !showInputDialog"> add item + </button>
+</ng-container>
+</section>

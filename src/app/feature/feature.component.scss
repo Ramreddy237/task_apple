@@ -1,0 +1,10 @@
+:host{
+    .feature{
+        display: flex;
+
+        &-title {
+            margin-top: 0;
+            background-color: gray;
+        }
+    }
+}

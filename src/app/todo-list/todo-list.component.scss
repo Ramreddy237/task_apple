@@ -1,0 +1,36 @@
+:host {
+    .todo{
+        display: flex;
+        flex-direction: column;
+
+        &-list{
+            list-style: none;
+        }
+
+        &-modal{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 2rem auto;
+
+            &-input{
+                width: 10rem;
+            }
+
+            &-buttons{
+                margin-top: 0.5rem;
+                display: flex;   
+                justify-content: center; 
+
+                &-cancel{
+                    margin-left: 1rem;
+                }
+            }
+        }
+
+        &-add-button {
+            align-self: flex-end;
+            width: 5rem;
+        }
+    }
+}

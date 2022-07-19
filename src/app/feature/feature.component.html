@@ -1,0 +1,12 @@
+
+    <section class="feature">
+        <app-categories (emitTodoList)="listToDoGetter($event)" style="width: 30%; border: 1px solid red">
+            <h1 class="feature-title">Category List</h1>
+        </app-categories>
+        <ng-container *ngIf="list$ | async as list;">
+            <app-todo-list [categoryItemNumber]="list.itemIndex" [list]="list.item" style="width: 70%; border: 1px solid green">
+                <h1 class="feature-title">List items</h1>
+            </app-todo-list>
+        </ng-container>        
+    </section>
+    
